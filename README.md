@@ -1,33 +1,29 @@
-# Hi, I'm Priyobroto Lahiri 👋
-## AI Evaluation Engineer | Transitioning from Quality Engineering
+# LLM Text Similarity Engine
 
-I am a Quality Engineer with a deep background in traditional software testing, now pivoting into the world of **LLM Evaluation (EvalOps) and AI Reliability.** 
+A professional benchmark suite for evaluating LLM response quality using four distinct statistical and semantic similarity algorithms.
 
-Over the next 5 months, I am building a professional portfolio of open-source benchmarks and evaluation frameworks to ensure that AI systems are safe, faithful, and robust.
+## 🎯 The Problem
+Traditional software testing uses "Exact Match" (Boolean) validation. However, LLM outputs are non-deterministic and linguistically diverse. A model might provide a correct answer that uses different words than the ground truth. To evaluate such models, we need mathematical tools that can measure "closeness" on a spectrum from 0 to 1.
 
----
+## 🛠️ The Approach
+This engine benchmarks four industry-standard methods to move from Boolean testing to Statistical evaluation:
 
-### 🚀 The 5-Month Portfolio Roadmap
+1.  **Jaccard Similarity:** Measures word-set overlap (Lexical).
+2.  **TF-IDF Cosine Similarity:** Measures weighted keyword overlap, accounting for word importance.
+3.  **ROUGE-L:** Measures the Longest Common Subsequence (Structural), ideal for summarization tasks.
+4.  **Semantic Similarity (MiniLM):** Uses vector embeddings to measure meaning overlap, even when no words match.
 
-| Phase | Project | Status | Description |
+## 📊 Benchmark Results (Preview)
+*The results below will be populated after running the final benchmark against Gemini 1.5 Flash and Claude 3 Haiku.*
+
+| Method | Avg Score (Paraphrases) | Avg Score (Contradictions) | Latency (Avg) |
 | :--- | :--- | :--- | :--- |
-| **Phase 1** | **Text Similarity Engine** | 🟡 Active | Benchmarking lexical vs. semantic similarity for LLM outputs. |
-| **Phase 2** | **RAG Hallucination Reporter** | ⚪ Planned | Detecting factual inconsistencies in medical RAG systems. |
-| **Phase 3** | **LLM-as-a-Judge Framework** | ⚪ Planned | Using GPT-4o to evaluate weaker models with custom rubrics. |
-| **Phase 4** | **EvalOps CI/CD Pipeline** | ⚪ Planned | Integrating automated evals into GitHub Actions with Promptfoo. |
-| **Phase 5** | **Capstone: AI Quality Gates** | ⚪ Planned | An end-to-end framework for production-ready AI reliability. |
+| **Jaccard** | TBD | TBD | TBD |
+| **TF-IDF Cosine** | TBD | TBD | TBD |
+| **ROUGE-L** | TBD | TBD | TBD |
+| **Semantic (SBERT)** | TBD | TBD | TBD |
 
----
-
-### 🛠️ Tech Stack
-- **AI/LLM:** Gemini, Claude, Llama 3, OpenAI, Ragas, DeepEval, LangChain
-- **Languages/Tools:** Python, Pandas, NumPy, Git, Docker, GitHub Actions
-- **Eval Metrics:** BLEU, ROUGE, BERTScore, Cosine Similarity, G-Eval
-
----
-
-### 📬 Connect with Me
-- **LinkedIn:** [Priyobroto Lahiri](https://www.linkedin.com/in/priyobroto-lahiri/)
-- **Hugging Face:** [priyobroto-lahiri](https://huggingface.co/priyobroto-lahiri)
-
-*"Moving from Boolean (Pass/Fail) to Statistical (Scored) testing."*
+## 🚀 Tech Stack
+- **Language:** Python 3.x
+- **Libraries:** scikit-learn, NLTK, Sentence-Transformers, SacreBLEU
+- **Deployment:** Streamlit + Hugging Face Spaces
